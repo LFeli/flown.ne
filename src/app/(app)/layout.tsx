@@ -1,3 +1,4 @@
+import { SiteHeader } from '@/components/layout/header'
 import { AppSidebar } from '@/components/layout/sidebar/sidebar'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 
@@ -10,7 +11,11 @@ export default function AppLayout({
     <SidebarProvider>
       <AppSidebar variant="inset" />
 
-      <SidebarInset>{children}</SidebarInset>
+      <SidebarInset>
+        <SiteHeader />
+
+        {children}
+      </SidebarInset>
     </SidebarProvider>
   )
 }
