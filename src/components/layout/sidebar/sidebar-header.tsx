@@ -25,7 +25,7 @@ export function AppSidebarHeader() {
             <span className="flex flex-col">
               <h4 className="font-semibold text-base">Flown.ne Inc.</h4>
 
-              <span className="flex gap-x-1.5 text-muted-foreground text-xs">
+              <span className="flex items-center gap-x-1.5 text-muted-foreground text-xs">
                 <CrownIcon className="size-3" />
                 <span>Premium</span>
               </span>
