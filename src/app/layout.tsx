@@ -5,6 +5,7 @@ import { fontMono, fontSans } from '@/lib/font'
 import { cn } from '@/lib/utils'
 
 import '@/styles/globals.css'
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: {
@@ -35,7 +36,7 @@ export default function RootLayout({
           fontMono.variable
         )}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
