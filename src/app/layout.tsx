@@ -4,6 +4,8 @@ import { siteConfig } from '@/config/site'
 import { fontMono, fontSans } from '@/lib/font'
 import { cn } from '@/lib/utils'
 
+import '@/styles/globals.css'
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
