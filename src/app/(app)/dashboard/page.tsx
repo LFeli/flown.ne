@@ -1,4 +1,4 @@
-import { ContentTrackerTable } from './_components/project-content-tracker-table'
+import { ContentTrackerTable } from './_components/content-tracker-table'
 import { SectionCards } from './_components/section-cards'
 import { TotalVisitorsChart } from './_components/total-visitors-chart'
 
