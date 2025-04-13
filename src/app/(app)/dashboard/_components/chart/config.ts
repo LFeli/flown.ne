@@ -1,6 +1,5 @@
 import type { ChartConfig } from '@/components/ui/chart'
-
-import type { ChartTimeRange } from '../../types'
+import type { ChartTimeRange } from '@/types/chart'
 
 export const chartConfig = {
   visitors: {

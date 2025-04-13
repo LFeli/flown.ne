@@ -6,8 +6,6 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-import type { ChartTimeRange } from '../../types'
-
 import {
   Select,
   SelectContent,
@@ -15,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import type { VisitorsChartData } from '@/types/chart'
+import type { ChartTimeRange, VisitorsChartData } from '@/types/chart'
 import { VisitorsChartInteractive } from './chart-interactive'
 import { chartPeriodLabel } from './config'
 

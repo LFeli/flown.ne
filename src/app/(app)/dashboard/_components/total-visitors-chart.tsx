@@ -5,9 +5,7 @@ import React from 'react'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { chartDataMock } from '@/mocks/chart'
 
-import type { ChartTimeRange } from '../types'
-
-import type { VisitorsChartData } from '@/types/chart'
+import type { ChartTimeRange, VisitorsChartData } from '@/types/chart'
 import { VisitorsChartWrapper } from './chart/chart-wrapper'
 import { chartPeriodMap } from './chart/config'
 
