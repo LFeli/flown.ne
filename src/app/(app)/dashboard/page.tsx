@@ -1,4 +1,5 @@
 import { SectionCards } from './_components/section-cards'
+import { TotalVisitorsChart } from './_components/total-visitors-chart'
 
 export default function DashboardPage() {
   return (
@@ -6,7 +7,9 @@ export default function DashboardPage() {
       <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
         <SectionCards />
 
-        <span>iterative graphic</span>
+        <div className="px-4 lg:px-6">
+          <TotalVisitorsChart />
+        </div>
 
         <span>my table here...</span>
       </div>
