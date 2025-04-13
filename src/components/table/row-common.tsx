@@ -10,20 +10,19 @@ interface RowCommonProps<TData> {
 
 export function RowCommon<TData>({ row }: RowCommonProps<TData>) {
   const cells = row.getVisibleCells()
+  const isSelected = row.getIsSelected()
 
   return (
-    <TableRow data-state={row.getIsSelected() && 'selected'}>
-      {cells.map(cell => (
-        <TableCell
-          key={cell.id}
-          className={cn(
-            'truncate py-3 pl-4',
-            cell.column.columnDef.meta?.cellClassName
-          )}
-        >
-          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-        </TableCell>
-      ))}
+    <TableRow data-state={isSelected && 'selected'}>
+      {cells.map(cell => {
+        const cellClassName = cell.column.columnDef.meta?.cellClassName
+
+        return (
+          <TableCell key={cell.id} className={cn('truncate', cellClassName)}>
+            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+          </TableCell>
+        )
+      })}
     </TableRow>
   )
 }
