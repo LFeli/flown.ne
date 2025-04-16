@@ -25,7 +25,7 @@ export function SearchInputFilter<TData>({
         id="Search"
         value={filterValue}
         onChange={event => column?.setFilterValue(event.target.value)}
-        className="h-10 bg-background pl-10 dark:bg-background"
+        className="h-10 pl-10 "
         placeholder={placeholder}
       />
 
