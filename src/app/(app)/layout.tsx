@@ -1,4 +1,3 @@
-import { SiteFooter } from '@/components/layout/footer'
 import { SiteHeader } from '@/components/layout/header'
 import { AppSidebar } from '@/components/layout/sidebar/sidebar'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
@@ -18,8 +17,6 @@ export default function AppLayout({
 
           {/* Scrollable Content */}
           <div className="flex-1 overflow-auto">{children}</div>
-
-          <SiteFooter />
         </SidebarInset>
       </div>
     </SidebarProvider>

@@ -1,3 +1,5 @@
+import { SiteFooter } from '@/components/layout/footer'
+
 import { ContentTrackerTable } from './_components/content-tracker-table'
 import { SectionCards } from './_components/section-cards'
 import { TotalVisitorsChart } from './_components/total-visitors-chart'
@@ -12,6 +14,8 @@ export default function DashboardPage() {
           <TotalVisitorsChart />
           <ContentTrackerTable />
         </div>
+
+        <SiteFooter />
       </div>
     </main>
   )
