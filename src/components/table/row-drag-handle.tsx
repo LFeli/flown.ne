@@ -4,19 +4,19 @@ import { GripVerticalIcon } from 'lucide-react'
 import { Button } from '../ui/button'
 
 interface RowDragHandleProps {
-  rowID: number
+  id: number
 }
 
-export function RowDragHandle({ rowID }: RowDragHandleProps) {
+export function RowDragHandle({ id }: RowDragHandleProps) {
   const { attributes, listeners } = useSortable({
-    id: rowID,
+    id,
   })
 
   return (
     <Button
       variant={'ghost'}
       size={'icon'}
-      className="size-7 text-muted-foreground hover:bg-transparent"
+      className="size-7 cursor-pointer text-muted-foreground hover:bg-transparent"
       {...attributes}
       {...listeners}
     >
