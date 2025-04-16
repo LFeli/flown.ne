@@ -1,3 +1,4 @@
+import { ColumnVisibilityFilter } from '@/components/table/column-visibility-filter'
 import { SearchInputFilter } from '@/components/table/search-input-filter'
 import type { ContentTrackerData } from '@/types/table'
 import type { Table } from '@tanstack/react-table'
@@ -22,6 +23,8 @@ export function ContentTrackerToolbar<TData>({
           />
         )}
       </div>
+
+      <ColumnVisibilityFilter table={table} />
     </div>
   )
 }
