@@ -10,7 +10,7 @@ import { Button } from '../ui/button'
 
 interface PaginationControlProps<TData> {
   table: Table<TData>
-  paginationType: 'simple' | 'double'
+  paginationType?: 'simple' | 'double'
 }
 
 export function PaginationControl<TData>({
