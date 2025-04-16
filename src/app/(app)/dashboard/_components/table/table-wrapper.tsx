@@ -38,6 +38,8 @@ import { TableEmptyState } from '@/components/table/table-empty-state'
 import { TableHeaderTemplate } from '@/components/table/table-header-template'
 import { Table, TableBody } from '@/components/ui/table'
 import type { ContentTrackerData } from '@/types/table'
+import { ContentTableFooter } from './footer'
+import { ContentTrackerToolbar } from './toolbar'
 
 interface ContentTableWrapperProps<TData extends ContentTrackerData, TValue> {
   data: TData[]
@@ -112,33 +114,39 @@ export function ContentTableWrapper<TData extends ContentTrackerData, TValue>({
   const header = table.getHeaderGroups()
 
   return (
-    <div className="overflow-hidden rounded-lg border">
-      <DndContext
-        collisionDetection={closestCenter}
-        modifiers={[restrictToVerticalAxis]}
-        onDragEnd={handleDragEnd}
-        sensors={sensors}
-        id={sortableId}
-      >
-        <Table>
-          <TableHeaderTemplate header={header} />
+    <div className="space-y-4">
+      <ContentTrackerToolbar table={table} />
 
-          <TableBody className="**:data-[slot=table-cell]:first:w-8">
-            <SortableContext
-              items={dataIds}
-              strategy={verticalListSortingStrategy}
-            >
-              {rows.length ? (
-                rows.map(row => (
-                  <RowDraggable key={row.id} id={row.original.id} row={row} />
-                ))
-              ) : (
-                <TableEmptyState columns={columns} />
-              )}
-            </SortableContext>
-          </TableBody>
-        </Table>
-      </DndContext>
+      <div className="overflow-hidden rounded-lg border">
+        <DndContext
+          collisionDetection={closestCenter}
+          modifiers={[restrictToVerticalAxis]}
+          onDragEnd={handleDragEnd}
+          sensors={sensors}
+          id={sortableId}
+        >
+          <Table>
+            <TableHeaderTemplate header={header} />
+
+            <TableBody className="**:data-[slot=table-cell]:first:w-8">
+              <SortableContext
+                items={dataIds}
+                strategy={verticalListSortingStrategy}
+              >
+                {rows.length ? (
+                  rows.map(row => (
+                    <RowDraggable key={row.id} id={row.original.id} row={row} />
+                  ))
+                ) : (
+                  <TableEmptyState columns={columns} />
+                )}
+              </SortableContext>
+            </TableBody>
+          </Table>
+        </DndContext>
+      </div>
+
+      <ContentTableFooter />
     </div>
   )
 }
