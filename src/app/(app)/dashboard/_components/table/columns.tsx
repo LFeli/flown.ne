@@ -23,7 +23,7 @@ export const columns: ColumnDef<ContentTrackerData>[] = [
   {
     id: 'drag',
     header: () => null,
-    cell: ({ row }) => <RowDragHandle rowID={row.original.id} />,
+    cell: ({ row }) => <RowDragHandle id={row.original.id} />,
   },
 
   {
