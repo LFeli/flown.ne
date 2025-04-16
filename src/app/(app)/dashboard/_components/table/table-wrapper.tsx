@@ -146,7 +146,7 @@ export function ContentTableWrapper<TData extends ContentTrackerData, TValue>({
         </DndContext>
       </div>
 
-      <ContentTableFooter />
+      <ContentTableFooter table={table} />
     </div>
   )
 }
