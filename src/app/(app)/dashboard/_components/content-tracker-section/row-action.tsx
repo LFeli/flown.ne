@@ -13,6 +13,12 @@ import {
 } from '@/components/ui/dropdown-menu'
 import type { ContentTrackerData } from '@/types/table'
 
+// TO-DO: CREATE CELL DETAILS COMPONENT, AND CREATE A BASE FORM FOR THIS COMPONENT...*
+// TO-DO: FUNCTION FOR COPY A ROW DATA...
+// TO-DO: FUNCTION FOR FAVORITE A ROW
+// TO-DO: FUNCTION FOR UNFAVORITE A ROW
+// TO-DO: FUNCTION FOR DELETE A ROW
+
 interface ContentTrackerRowActionProps<TData extends ContentTrackerData> {
   row: Row<TData>
 }
