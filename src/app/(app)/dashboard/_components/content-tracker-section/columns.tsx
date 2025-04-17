@@ -1,11 +1,11 @@
 'use client'
 
 import type { ColumnDef } from '@tanstack/react-table'
+import { CheckCircle2Icon, LoaderIcon } from 'lucide-react'
 import { toast } from 'sonner'
 
 import { RowDragHandle } from '@/components/table/row-drag-handle'
 import { Badge } from '@/components/ui/badge'
-
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import type { ContentTrackerData } from '@/types/table'
-import { CheckCircle2Icon, LoaderIcon, MoreVerticalIcon } from 'lucide-react'
+
 import { ContentTrackerRowAction } from './row-action'
 
 export const columns: ColumnDef<ContentTrackerData>[] = [
@@ -158,6 +158,6 @@ export const columns: ColumnDef<ContentTrackerData>[] = [
 
   {
     id: 'actions',
-    cell: () => <ContentTrackerRowAction />,
+    cell: ({ row }) => <ContentTrackerRowAction row={row} />,
   },
 ]
