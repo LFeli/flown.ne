@@ -1,3 +1,8 @@
+import Link from 'next/link'
+
+import type { Row } from '@tanstack/react-table'
+import { MoreVerticalIcon } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -6,9 +11,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { MoreVerticalIcon } from 'lucide-react'
+import type { ContentTrackerData } from '@/types/table'
 
-export function ContentTrackerRowAction() {
+interface ContentTrackerRowActionProps<TData extends ContentTrackerData> {
+  row: Row<TData>
+}
+
+export function ContentTrackerRowAction<TData extends ContentTrackerData>({
+  row,
+}: ContentTrackerRowActionProps<TData>) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -21,8 +32,14 @@ export function ContentTrackerRowAction() {
           <span className="sr-only">Open menu</span>
         </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent align="end" className="w-32">
-        <DropdownMenuItem>Edit</DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href={`/dashboard/content-tracker/details/${row.original.id}`}>
+            Edit
+          </Link>
+        </DropdownMenuItem>
+
         <DropdownMenuItem>Make a copy</DropdownMenuItem>
         <DropdownMenuItem>Favorite</DropdownMenuItem>
         <DropdownMenuSeparator />
