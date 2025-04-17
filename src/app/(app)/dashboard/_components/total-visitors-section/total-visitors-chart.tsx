@@ -6,8 +6,8 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import { chartDataMock } from '@/mocks/chart'
 
 import type { ChartTimeRange, VisitorsChartData } from '@/types/chart'
-import { VisitorsChartWrapper } from './chart/chart-wrapper'
-import { chartPeriodMap } from './chart/config'
+import { VisitorsChartWrapper } from './chart-wrapper'
+import { chartPeriodMap } from './config'
 
 export function TotalVisitorsChart() {
   const [timeRange, setTimeRange] = React.useState<ChartTimeRange>('30d')

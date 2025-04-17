@@ -1,7 +1,3 @@
-import { ContentTrackerTableMock } from '@/mocks/table'
-import { columns } from './table/columns'
-import { ContentTableWrapper } from './table/table-wrapper'
-
 import {
   Card,
   CardContent,
@@ -9,6 +5,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { ContentTrackerTableMock } from '@/mocks/table'
+
+import { columns } from './columns'
+import { ContentTableWrapper } from './table-wrapper'
 
 export function ContentTrackerTable() {
   return (

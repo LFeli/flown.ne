@@ -1,7 +1,7 @@
-import { ActiveAccountsCard } from './cards/active-accounts-card'
-import { GrowthRateCard } from './cards/growth-rate-card'
-import { NewCustomersCard } from './cards/new-customers-card'
-import { TotalRevenueCard } from './cards/total-revenue-card'
+import { ActiveAccountsCard } from "./active-accounts-card";
+import { GrowthRateCard } from "./growth-rate-card";
+import { NewCustomersCard } from "./new-customers-card";
+import { TotalRevenueCard } from "./total-revenue-card";
 
 export function SectionCards() {
   return (

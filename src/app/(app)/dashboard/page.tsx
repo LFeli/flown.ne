@@ -1,8 +1,8 @@
 import { SiteFooter } from '@/components/layout/footer'
 
-import { ContentTrackerTable } from './_components/content-tracker-table'
-import { SectionCards } from './_components/section-cards'
-import { TotalVisitorsChart } from './_components/total-visitors-chart'
+import { ContentTrackerTable } from './_components/content-tracker-section/content-tracker-table'
+import { SectionCards } from './_components/kpi-card-section/section-cards'
+import { TotalVisitorsChart } from './_components/total-visitors-section/total-visitors-chart'
 
 export default function DashboardPage() {
   return (
