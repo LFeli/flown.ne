@@ -74,7 +74,7 @@ export function TrackerDetailsForm({
     <form
       id="tracker-details-form"
       onSubmit={handleSubmit(onSubmitForm)}
-      className="space-y-6 p-4 pb-0"
+      className="space-y-6 py-4 pb-0"
     >
       <article className="block space-y-3">
         <Label htmlFor="header">Header</Label>

@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/drawer'
 
 import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import {
   Sheet,
   SheetContent,
@@ -22,26 +23,35 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet'
 import { useIsMobile } from '@/hooks/use-mobile'
+import type { TrackerDetailsChartData } from '@/types/chart'
 import type { ContentTrackerData } from '@/types/table'
 import { TrackerDetailsForm } from './tracker-details-form'
 import { TrackerDetailsInteractiveChart } from './tracker-details-interactive-chart'
 
 interface TrackerDetailsModalProps {
   data: ContentTrackerData | undefined
+  chartData: TrackerDetailsChartData[]
 }
 
-export function TrackerDetailsModal({ data }: TrackerDetailsModalProps) {
+export function TrackerDetailsModal({
+  data,
+  chartData,
+}: TrackerDetailsModalProps) {
   const mobile = useIsMobile()
   const router = useRouter()
 
   const [isOpen, setIsOpen] = React.useState<boolean>(true)
 
+  const handleCloseModal = React.useCallback(() => {
+    setIsOpen(false)
+
+    const timeout = setTimeout(() => router.back(), 150)
+    return () => clearTimeout(timeout)
+  }, [router])
+
   function onDismiss(open: boolean) {
     if (!open) {
-      setIsOpen(false)
-
-      const timeout = setTimeout(() => router.back(), 150) // Delay to allow the modal to close, based in animate-out duration 0.15s
-      return () => clearTimeout(timeout)
+      handleCloseModal()
     }
   }
 
@@ -49,21 +59,29 @@ export function TrackerDetailsModal({ data }: TrackerDetailsModalProps) {
     return (
       <Drawer open={isOpen} onOpenChange={onDismiss}>
         <DrawerContent className="bg-linear-to-t from-primary/5 to-card shadow-xs">
-          <DrawerHeader>
-            <DrawerTitle>{data?.header}</DrawerTitle>
+          <div className="overflow-auto">
+            <DrawerHeader>
+              <DrawerTitle>
+                Details of{' '}
+                <span className="font-bold text-primary">{data?.header}</span>
+              </DrawerTitle>
 
-            <DrawerDescription>
-              Showing total visitors for the last 6 months
-            </DrawerDescription>
-          </DrawerHeader>
+              <DrawerDescription>
+                Showing total visitors for the last 6 months
+              </DrawerDescription>
+            </DrawerHeader>
 
-          <TrackerDetailsInteractiveChart />
+            <TrackerDetailsInteractiveChart data={chartData} />
 
-          <TrackerDetailsForm />
+            <Separator orientation="horizontal" className="w-full" />
 
-          <DrawerFooter className="space-y-2">
+            <TrackerDetailsForm data={data} onSuccess={handleCloseModal} />
+          </div>
+
+          <DrawerFooter className="space-y-2 pt-0">
+            {/* the loader need make use state of mutation in react-query */}
             <Button type="submit" form="tracker-details-form">
-              Submit
+              Save tracker details
             </Button>
 
             <DrawerClose asChild>
@@ -78,17 +96,26 @@ export function TrackerDetailsModal({ data }: TrackerDetailsModalProps) {
   return (
     <Sheet open={isOpen} onOpenChange={onDismiss}>
       <SheetContent className="bg-linear-to-t from-primary/5 to-card shadow-xs">
-        <SheetHeader>
-          <SheetTitle>{data?.header}</SheetTitle>
+        <div className="overflow-auto">
+          <SheetHeader>
+            <SheetTitle>
+              Details of{' '}
+              <span className="font-bold text-primary">{data?.header}</span>
+            </SheetTitle>
 
-          <SheetDescription>
-            Showing total visitors for the last 6 months
-          </SheetDescription>
-        </SheetHeader>
+            <SheetDescription>
+              Showing total visitors for the last 6 months
+            </SheetDescription>
+          </SheetHeader>
 
-        <TrackerDetailsInteractiveChart />
+          <section className="px-4">
+            <TrackerDetailsInteractiveChart data={chartData} />
 
-        <TrackerDetailsForm />
+            <Separator orientation="horizontal" className="w-full" />
+
+            <TrackerDetailsForm data={data} onSuccess={handleCloseModal} />
+          </section>
+        </div>
       </SheetContent>
     </Sheet>
   )

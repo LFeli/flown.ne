@@ -15,7 +15,7 @@ export function TrackerDetailsInteractiveChart({
   data,
 }: TrackerDetailsInteractiveChartProps) {
   return (
-    <ChartContainer config={trackerDetailsChartConfig} className="p-4">
+    <ChartContainer config={trackerDetailsChartConfig} className="py-4">
       <AreaChart accessibilityLayer data={data}>
         <defs>
           <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
