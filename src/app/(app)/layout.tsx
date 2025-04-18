@@ -4,8 +4,10 @@ import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 
 export default function AppLayout({
   children,
+  modals,
 }: Readonly<{
   children: React.ReactNode
+  modals: React.ReactNode
 }>) {
   return (
     <SidebarProvider>
@@ -16,7 +18,10 @@ export default function AppLayout({
           <SiteHeader />
 
           {/* Scrollable Content */}
-          <div className="flex-1 overflow-auto">{children}</div>
+          <div className="flex-1 overflow-auto">
+            {children}
+            {modals}
+          </div>
         </SidebarInset>
       </div>
     </SidebarProvider>
