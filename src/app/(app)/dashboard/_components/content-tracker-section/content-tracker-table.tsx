@@ -21,7 +21,7 @@ export function ContentTrackerTable() {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="px-2 sm:px-6">
+      <CardContent className="px-6">
         <ContentTableWrapper data={ContentTrackerTableMock} columns={columns} />
       </CardContent>
     </Card>
