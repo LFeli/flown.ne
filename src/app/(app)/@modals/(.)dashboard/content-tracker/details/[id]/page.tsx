@@ -1,4 +1,5 @@
 import { TrackerDetailsModal } from '@/components/features/content-tracker/tracker-details-modal'
+import { ContentTrackerDetailsDataMock } from '@/mocks/chart'
 import { ContentTrackerTableMock } from '@/mocks/table'
 
 export default async function ContentTrackerDetailsModal({
@@ -9,5 +10,10 @@ export default async function ContentTrackerDetailsModal({
   const { id } = await params
   const data = ContentTrackerTableMock.find(item => item.id === Number(id))
 
-  return <TrackerDetailsModal data={data} />
+  return (
+    <TrackerDetailsModal
+      data={data}
+      chartData={ContentTrackerDetailsDataMock}
+    />
+  )
 }
