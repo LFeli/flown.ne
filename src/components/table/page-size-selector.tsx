@@ -19,7 +19,7 @@ export function PageSizeSelector<TData>({
   const pageSize = table.getState().pagination.pageSize
 
   return (
-    <article className="flex items-center gap-3">
+    <article className="hidden items-center gap-3 md:flex">
       <span className="font-medium text-sm">Rows per page</span>
 
       <Select

@@ -6,6 +6,8 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
 
@@ -19,15 +21,20 @@ export function ColumnVisibilityFilter<TData>({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant={'outline'} size={'sm'}>
+        <Button variant={'outline'} size={'sm'} className="md:h-10">
           <ColumnsIcon />
-          <span className="hidden lg:inline">Customize Columns</span>
-          <span className="lg:hidden">Columns</span>
+          <span className="hidden md:block">Customize Columns</span>
+
           <ChevronDownIcon />
         </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuLabel className="md:hidden">
+          Customize Columns
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator className="md:hidden" />
+
         {table
           .getAllColumns()
           .filter(

@@ -15,8 +15,8 @@ export function ContentTableFooter<TData>({
       <div className="flex w-full flex-col-reverse items-start justify-between gap-4 md:flex-row md:items-center lg:space-x-8">
         <PageSizeSelector table={table} />
 
-        <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center font-medium text-sm">
+        <div className="flex w-full items-center justify-between gap-4 md:w-fit md:justify-start">
+          <div className="flex items-center font-medium text-sm">
             <PaginationInfoDisplay table={table} />
           </div>
 

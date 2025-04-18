@@ -20,18 +20,18 @@ export function SearchInputFilter<TData>({
   const filterValue = (getColumn?.getFilterValue() as string) ?? ''
 
   return (
-    <article className="relative w-full max-w-60">
+    <article className="relative w-full max-w-48 md:max-w-60">
       <Input
         id="Search"
         value={filterValue}
         onChange={event => column?.setFilterValue(event.target.value)}
-        className="h-10 pl-10 "
+        className="h-8 pl-10 text-sm md:h-10 md:text-base"
         placeholder={placeholder}
       />
 
       <Label
         htmlFor="search"
-        className="absolute top-1 left-3 translate-y-1/2 transform"
+        className="absolute top-0 left-3 translate-y-1/2 transform md:top-1"
         asChild
       >
         <SearchIcon className="size-4" />

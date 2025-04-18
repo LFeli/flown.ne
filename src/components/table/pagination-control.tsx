@@ -28,12 +28,12 @@ export function PaginationControl<TData>({
   }
 
   return (
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center gap-x-4">
       {paginationType === 'double' && (
         <Button
           variant={'outline'}
           size={'icon'}
-          className="size-8 bg-background p-0 dark:bg-background"
+          className="hidden size-8 bg-background p-0 md:inline-flex dark:bg-background"
           onClick={() => handleSetPage(pageIndex - 5)}
           disabled={!canGetPreviousPage}
         >
@@ -65,7 +65,7 @@ export function PaginationControl<TData>({
         <Button
           variant={'outline'}
           size={'icon'}
-          className="size-8 bg-background p-0 dark:bg-background"
+          className="hidden size-8 bg-background p-0 md:inline-flex dark:bg-background"
           onClick={() => handleSetPage(pageIndex + 5)}
           disabled={!canGetPreviousPage}
         >
