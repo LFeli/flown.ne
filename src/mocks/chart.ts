@@ -1,4 +1,4 @@
-import type { VisitorsChartData } from '@/types/chart'
+import type { TrackerDetailsChartData, VisitorsChartData } from '@/types/chart'
 
 export const chartDataMock: VisitorsChartData[] = [
   { date: '2024-04-01', desktop: 222, mobile: 150 },
@@ -92,4 +92,12 @@ export const chartDataMock: VisitorsChartData[] = [
   { date: '2024-06-28', desktop: 149, mobile: 200 },
   { date: '2024-06-29', desktop: 103, mobile: 160 },
   { date: '2024-06-30', desktop: 446, mobile: 400 },
+]
+export const ContentTrackerDetailsDataMock: TrackerDetailsChartData[] = [
+  { month: 'January', desktop: 186, mobile: 80 },
+  { month: 'February', desktop: 305, mobile: 200 },
+  { month: 'March', desktop: 237, mobile: 120 },
+  { month: 'April', desktop: 73, mobile: 190 },
+  { month: 'May', desktop: 209, mobile: 130 },
+  { month: 'June', desktop: 214, mobile: 140 },
 ]
