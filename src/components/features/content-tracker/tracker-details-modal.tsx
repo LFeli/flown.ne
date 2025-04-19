@@ -71,11 +71,13 @@ export function TrackerDetailsModal({
               </DrawerDescription>
             </DrawerHeader>
 
-            <TrackerDetailsInteractiveChart data={chartData} />
+            <section className="block px-4">
+              <TrackerDetailsInteractiveChart data={chartData} />
 
-            <Separator orientation="horizontal" className="w-full" />
+              <Separator orientation="horizontal" className="w-full" />
 
-            <TrackerDetailsForm data={data} onSuccess={handleCloseModal} />
+              <TrackerDetailsForm data={data} onSuccess={handleCloseModal} />
+            </section>
           </div>
 
           <DrawerFooter className="space-y-2 pt-0">
@@ -108,7 +110,7 @@ export function TrackerDetailsModal({
             </SheetDescription>
           </SheetHeader>
 
-          <section className="px-4">
+          <section className="block px-4">
             <TrackerDetailsInteractiveChart data={chartData} />
 
             <Separator orientation="horizontal" className="w-full" />
