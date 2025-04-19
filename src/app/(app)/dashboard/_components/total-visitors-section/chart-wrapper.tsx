@@ -13,7 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import type { ChartTimeRange, VisitorsChartData } from '@/types/chart'
+import type { VisitorsChartData } from '@/types/chart'
+import type { ChartTimeRange } from '@/types/shared'
+
 import { VisitorsChartInteractive } from './chart-interactive'
 import { chartPeriodLabel } from './config'
 
