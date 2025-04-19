@@ -18,7 +18,7 @@ export default function AppLayout({
           <SiteHeader />
 
           {/* Scrollable Content */}
-          <div className="flex-1 overflow-auto">
+          <div className="flex flex-1 flex-col overflow-auto">
             {children}
             {modals}
           </div>
