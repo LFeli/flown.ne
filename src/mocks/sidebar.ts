@@ -18,7 +18,7 @@ export const sidebarMockUser = {
 export const sidebarMockMain = [
   {
     title: 'Dashboard',
-    url: '#',
+    url: '/dashboard',
     icon: LayoutDashboardIcon,
   },
   {
@@ -28,7 +28,7 @@ export const sidebarMockMain = [
   },
   {
     title: 'Analytics',
-    url: '#',
+    url: '/analytics',
     icon: BarChartIcon,
   },
   {
