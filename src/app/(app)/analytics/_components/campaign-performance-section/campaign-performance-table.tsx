@@ -5,6 +5,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { AnalyticCampaignPerformanceMock } from '@/mocks/table'
+
+import { columns } from './columns'
+import { CampaignPerformanceTableWrapper } from './table-wrapper'
 
 export function CampaignPerformanceTable() {
   return (
@@ -19,7 +23,10 @@ export function CampaignPerformanceTable() {
       </CardHeader>
 
       <CardContent>
-        <span>my table here...</span>
+        <CampaignPerformanceTableWrapper
+          data={AnalyticCampaignPerformanceMock}
+          columns={columns}
+        />
       </CardContent>
     </Card>
   )
