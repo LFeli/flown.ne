@@ -159,5 +159,9 @@ export const columns: ColumnDef<ContentTrackerData>[] = [
   {
     id: 'actions',
     cell: ({ row }) => <ContentTrackerRowAction row={row} />,
+
+    meta: {
+      cellClassName: 'w-12 min-w-12',
+    },
   },
 ]
