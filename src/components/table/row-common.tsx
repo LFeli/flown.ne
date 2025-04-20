@@ -13,7 +13,7 @@ export function RowCommon<TData>({ row }: RowCommonProps<TData>) {
   const isSelected = row.getIsSelected()
 
   return (
-    <TableRow data-state={isSelected && 'selected'}>
+    <TableRow data-state={isSelected && 'selected'} className="h-12">
       {cells.map(cell => {
         const cellClassName = cell.column.columnDef.meta?.cellClassName
 
