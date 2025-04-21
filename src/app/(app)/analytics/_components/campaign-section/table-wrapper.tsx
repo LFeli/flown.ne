@@ -22,12 +22,7 @@ import { RowCommon } from '@/components/table/row-common'
 import { TableEmptyState } from '@/components/table/table-empty-state'
 import { monthsMap } from '@/constants/months'
 import type { AnalyticCampaignData } from '@/types/table'
-
-// by default the months columns is hidden for not generated shift layout on refresh
-const defaultVisibility: VisibilityState = Object.fromEntries(
-  Object.values(monthsMap).map(monthKey => [monthKey, false])
-)
-defaultVisibility.totalImpressions = false
+import { CampaignSectionToolbar } from './toolbar'
 
 interface CampaignTableWrapperProps<
   TData extends AnalyticCampaignData,
@@ -37,6 +32,12 @@ interface CampaignTableWrapperProps<
   columns: ColumnDef<TData, TValue>[]
   visibleMonths?: string[]
 }
+
+// by default the months columns is hidden for not generated shift layout on refresh
+const defaultVisibility: VisibilityState = Object.fromEntries(
+  Object.values(monthsMap).map(monthKey => [monthKey, false])
+)
+defaultVisibility.totalImpressions = false
 
 export function CampaignTableWrapper<
   TData extends AnalyticCampaignData,
@@ -94,7 +95,7 @@ export function CampaignTableWrapper<
 
   return (
     <div className="space-y-4">
-      {/* toolbar here... */}
+      <CampaignSectionToolbar table={table} visibleMonths={visibleMonths} />
 
       <div className="overflow-hidden rounded-lg border">
         <Table>
