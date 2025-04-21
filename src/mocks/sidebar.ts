@@ -33,7 +33,7 @@ export const sidebarMockMain = [
   },
   {
     title: 'Projects',
-    url: '#',
+    url: '/projects',
     icon: FolderIcon,
   },
   {
