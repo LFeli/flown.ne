@@ -1,7 +1,20 @@
+/**
+ * An array of strings representing all months in a year (from "1" to "12").
+ * Useful for iterating over or displaying month numbers as strings.
+ *
+ * @example
+ * console.log(monthRange); // ["1", "2", ..., "12"]
+ */
 export const monthRange = Array.from({ length: 12 }, (_, i) =>
   (i + 1).toString()
 )
 
+/**
+ * A mapping from month numbers (as strings) to their corresponding lowercase month names.
+ *
+ * @example
+ * console.log(monthsMap["1"]); // "january"
+ */
 export const monthsMap: Record<string, string> = {
   '1': 'january',
   '2': 'february',
@@ -17,6 +30,12 @@ export const monthsMap: Record<string, string> = {
   '12': 'december',
 }
 
+/**
+ * A mapping from quarter numbers (as strings) to arrays of corresponding month numbers (as strings).
+ *
+ * @example
+ * console.log(quarterMap["1"]); // ["1", "2", "3"]
+ */
 export const quarterMap: Record<string, string[]> = {
   '1': ['1', '2', '3'],
   '2': ['4', '5', '6'],
