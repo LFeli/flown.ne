@@ -5,14 +5,14 @@ import { ClickActivityChart } from './_components/click-activity-section/click-a
 import { TotalConversionsChart } from './_components/total-conversions-section/total-conversions-chart'
 
 interface AnalyticsPageProps {
-  searchParams: Promise<{ start?: string; end?: string }>
+  searchParams: Promise<{ months?: string }>
 }
 
 export default async function AnalyticsPage({
   searchParams,
 }: AnalyticsPageProps) {
-  const { start, end } = await searchParams
-  const visibleMonths = getVisibleMonths(start, end)
+  const { months } = await searchParams
+  const visibleMonths = getVisibleMonths(months)
 
   return (
     <main className="flex flex-1 flex-col gap-3">
