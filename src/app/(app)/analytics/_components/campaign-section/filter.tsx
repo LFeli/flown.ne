@@ -1,6 +1,13 @@
 import { useRouter } from 'next/navigation'
 
-import { CheckIcon, FilterIcon } from 'lucide-react'
+import type { Table } from '@tanstack/react-table'
+import {
+  CalendarRangeIcon,
+  CheckIcon,
+  ColumnsIcon,
+  FilterIcon,
+  PencilIcon,
+} from 'lucide-react'
 import React from 'react'
 
 import { FilterResetButton } from '@/components/table/filter-reset-button'
@@ -18,16 +25,20 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { monthsMap, quarterMap } from '@/constants/months'
+import { monthRange, monthsMap, quarterMap } from '@/constants/months'
 import { formatToTitleCase } from '@/utils/format-to-title-case'
 
-interface CampaignSectionFilterProps {
+interface CampaignSectionFilterProps<TData> {
+  table: Table<TData>
   visibleMonths?: string[]
 }
 
-export function CampaignSectionFilter({
+const TOGGLE_COLUMNS = ['conversions', 'revenue', 'clicks']
+
+export function CampaignSectionFilter<TData>({
+  table,
   visibleMonths,
-}: CampaignSectionFilterProps) {
+}: CampaignSectionFilterProps<TData>) {
   const router = useRouter()
   const [selected, setSelected] = React.useState<string[]>(visibleMonths ?? [])
 
@@ -55,25 +66,30 @@ export function CampaignSectionFilter({
 
   const handleApply = React.useCallback(() => {
     if (selected.length === 0) {
-      router.push('?start=0&end=0')
+      router.push('?months=0')
       return
     }
 
     const sorted = selected.map(Number).sort((a, b) => a - b)
-    const start = String(sorted[0])
-    const end = String(sorted[sorted.length - 1])
+    const monthParam = sorted.join(',')
 
     const params = new URLSearchParams(window.location.search)
-    params.set('start', start)
-    params.set('end', end)
+    params.set('months', monthParam)
 
     router.push(`?${params.toString()}`)
   }, [router, selected])
 
   const handleClear = React.useCallback(() => {
-    setSelected([])
-    router.push('?start=1&end=12')
-  }, [router])
+    setSelected(monthRange) // Set state to all available months
+
+    table.setColumnVisibility(
+      Object.fromEntries(TOGGLE_COLUMNS.map(col => [col, true]))
+    )
+
+    const params = new URLSearchParams(window.location.search)
+    params.delete('months') // Remove the param entirely
+    router.push(`?${params.toString()}`)
+  }, [router, table])
 
   return (
     <DropdownMenu>
@@ -85,7 +101,10 @@ export function CampaignSectionFilter({
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="center" sideOffset={8} className="w-44">
-        <DropdownMenuLabel>Filter by Months</DropdownMenuLabel>
+        <DropdownMenuLabel className="flex items-center text-muted-foreground">
+          Filter by Months
+          <CalendarRangeIcon className="ml-auto size-4" />
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <DropdownMenuSub>
@@ -125,18 +144,59 @@ export function CampaignSectionFilter({
         </DropdownMenuSub>
 
         <DropdownMenuSeparator />
-        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+        <DropdownMenuLabel className="flex items-center text-muted-foreground">
+          Column visibility
+          <ColumnsIcon className="ml-auto size-4" />
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger>Toggle columns</DropdownMenuSubTrigger>
+
+          <DropdownMenuPortal>
+            <DropdownMenuSubContent alignOffset={-4} sideOffset={8}>
+              {TOGGLE_COLUMNS.map(columnId => {
+                const column = table?.getColumn(columnId)
+
+                return (
+                  <DropdownMenuCheckboxItem
+                    key={columnId}
+                    checked={column?.getIsVisible()}
+                    onCheckedChange={() => column?.toggleVisibility()}
+                    onSelect={event => event.preventDefault()}
+                  >
+                    {formatToTitleCase(columnId)}
+                  </DropdownMenuCheckboxItem>
+                )
+              })}
+            </DropdownMenuSubContent>
+          </DropdownMenuPortal>
+        </DropdownMenuSub>
+
+        <DropdownMenuSeparator />
+        <DropdownMenuLabel className="flex items-center text-muted-foreground">
+          Actions
+          <PencilIcon className="ml-auto size-4" />
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <div className="flex flex-col">
           <DropdownMenuItem onSelect={handleApply} asChild>
-            <Button variant="secondary" size="sm" className="w-full">
+            <Button
+              variant="secondary"
+              size="sm"
+              className="w-full focus-visible:ring-0"
+            >
               Apply filters
               <CheckIcon className="ml-auto size-4" />
             </Button>
           </DropdownMenuItem>
 
-          <DropdownMenuItem onSelect={handleClear} asChild>
+          <DropdownMenuItem
+            onSelect={handleClear}
+            className="w-full focus-visible:ring-0"
+            asChild
+          >
             <FilterResetButton />
           </DropdownMenuItem>
         </div>

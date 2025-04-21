@@ -25,7 +25,7 @@ export function CampaignSectionToolbar<TData>({
           />
         )}
 
-        <CampaignSectionFilter visibleMonths={visibleMonths} />
+        <CampaignSectionFilter table={table} visibleMonths={visibleMonths} />
       </div>
     </div>
   )
