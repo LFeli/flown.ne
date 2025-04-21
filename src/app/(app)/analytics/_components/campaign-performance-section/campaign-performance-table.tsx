@@ -10,7 +10,7 @@ import { AnalyticCampaignPerformanceMock } from '@/mocks/table'
 import { columns } from './columns'
 import { CampaignPerformanceTableWrapper } from './table-wrapper'
 
-export function CampaignPerformanceTable() {
+export function CampaignTable() {
   return (
     <Card className="bg-gradient-to-t from-primary/5 to-card shadow-xs">
       <CardHeader className="relative">

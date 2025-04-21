@@ -1,11 +1,13 @@
 'use client'
 
-import { Badge } from '@/components/ui/badge'
-import type { AnalyticCampaignPerformanceData } from '@/types/table'
 import type { ColumnDef } from '@tanstack/react-table'
-import { AnalyticCampaignPerformanceRowAction } from './row-action'
 
-export const columns: ColumnDef<AnalyticCampaignPerformanceData>[] = [
+import { Badge } from '@/components/ui/badge'
+import type { AnalyticCampaignData } from '@/types/table'
+
+import { AnalyticCampaignRowAction } from './row-action'
+
+export const columns: ColumnDef<AnalyticCampaignData>[] = [
   {
     accessorKey: 'campaignId',
     header: 'Campaign ID',
@@ -362,7 +364,7 @@ export const columns: ColumnDef<AnalyticCampaignPerformanceData>[] = [
 
   {
     id: 'actions',
-    cell: ({ row }) => <AnalyticCampaignPerformanceRowAction row={row} />,
+    cell: ({ row }) => <AnalyticCampaignRowAction row={row} />,
 
     meta: {
       cellClassName: 'w-12 min-w-12',

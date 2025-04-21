@@ -21,7 +21,7 @@ export interface ContentTrackerData {
   reviewer: string
 }
 
-export interface AnalyticCampaignPerformanceData {
+export interface AnalyticCampaignData {
   campaignId: string
   campaignName: string
   conversions: number

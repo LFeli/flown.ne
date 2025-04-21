@@ -1,6 +1,6 @@
 import { SiteFooter } from '@/components/layout/footer'
 
-import { CampaignPerformanceTable } from './_components/campaign-performance-section/campaign-performance-table'
+import { CampaignTable } from './_components/campaign-performance-section/campaign-performance-table'
 import { ClickActivityChart } from './_components/click-activity-over-time-section/click-activity-chart'
 import { TotalConversionsChart } from './_components/total-conversions-overview-section/total-conversions-chart'
 
@@ -25,7 +25,7 @@ export default async function AnalyticsPage() {
           <ClickActivityChart />
         </article>
 
-        <CampaignPerformanceTable />
+        <CampaignTable />
       </div>
       <SiteFooter />
     </main>

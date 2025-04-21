@@ -6,18 +6,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import type { AnalyticCampaignPerformanceData } from '@/types/table'
+import type { AnalyticCampaignData } from '@/types/table'
 import type { Row } from '@tanstack/react-table'
 import { MoreVerticalIcon } from 'lucide-react'
 
-interface AnalyticCampaignPerformanceRowActionProps<
-  TData extends AnalyticCampaignPerformanceData,
-> {
+interface AnalyticCampaignRowActionProps<TData extends AnalyticCampaignData> {
   row: Row<TData>
 }
-export function AnalyticCampaignPerformanceRowAction<
-  TData extends AnalyticCampaignPerformanceData,
->({ row }: AnalyticCampaignPerformanceRowActionProps<TData>) {
+export function AnalyticCampaignRowAction<TData extends AnalyticCampaignData>({
+  row,
+}: AnalyticCampaignRowActionProps<TData>) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

@@ -19,10 +19,10 @@ import { RowCommon } from '@/components/table/row-common'
 import { TableEmptyState } from '@/components/table/table-empty-state'
 import { TableHeaderTemplate } from '@/components/table/table-header-template'
 import { Table, TableBody } from '@/components/ui/table'
-import type { AnalyticCampaignPerformanceData } from '@/types/table'
+import type { AnalyticCampaignData } from '@/types/table'
 
 interface CampaignPerformanceTableWrapperProps<
-  TData extends AnalyticCampaignPerformanceData,
+  TData extends AnalyticCampaignData,
   TValue,
 > {
   data: TData[]
@@ -30,7 +30,7 @@ interface CampaignPerformanceTableWrapperProps<
 }
 
 export function CampaignPerformanceTableWrapper<
-  TData extends AnalyticCampaignPerformanceData,
+  TData extends AnalyticCampaignData,
   TValue,
 >({ data, columns }: CampaignPerformanceTableWrapperProps<TData, TValue>) {
   const [columnVisibility, setColumnVisibility] =
