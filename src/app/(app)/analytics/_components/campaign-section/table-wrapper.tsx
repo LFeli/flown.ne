@@ -56,6 +56,9 @@ export function CampaignTableWrapper<
       visibility[monthKey] = visibleMonths.includes(monthNumber)
     }
 
+    const hasVisibleMonths = visibleMonths.length > 0
+    visibility.totalImpressions = hasVisibleMonths
+
     setColumnVisibility(visibility)
   }, [visibleMonths])
 
