@@ -1,21 +1,29 @@
 import { XIcon } from 'lucide-react'
 
+import { cn } from '@/lib/utils'
+import type { ButtonHTMLAttributes } from 'react'
 import { Button } from '../ui/button'
 
-interface FilterResetButtonProps {
-  action: () => void
+interface FilterResetButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  action?: () => void
 }
 
-export function FilterResetButton({ action }: FilterResetButtonProps) {
+export function FilterResetButton({
+  action,
+  className,
+  ...props
+}: FilterResetButtonProps) {
   return (
     <Button
       variant={'ghost'}
-      size={'default'}
-      className="h-10 cursor-pointer"
+      size={'sm'}
+      className={cn(className)}
       onClick={action}
+      {...props}
     >
-      Reset filters
-      <XIcon className="ml-2 size-4" />
+      Clear filters
+      <XIcon className="ml-auto size-4" />
     </Button>
   )
 }
