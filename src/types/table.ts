@@ -42,3 +42,24 @@ export interface AnalyticCampaignData {
     december: number
   }
 }
+
+export type ProjectStatus = 'active' | 'archived' | 'in-review' | 'draft'
+
+export interface ProjectData {
+  id: string
+  name: string
+  description: string
+  owner: {
+    name: string
+    avatarUrl?: string
+  }
+  contributors: {
+    name: string
+    avatarUrl?: string
+  }[]
+  status: ProjectStatus
+  startDate: string
+  endDate?: string
+  lastUpdated: string
+  tags: string[]
+}
