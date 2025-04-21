@@ -59,7 +59,7 @@ export const columns: ColumnDef<AnalyticCampaignData>[] = [
     },
 
     meta: {
-      cellClassName: 'w-48 min-w-48',
+      cellClassName: 'min-w-72',
     },
   },
 
@@ -169,7 +169,7 @@ export const columns: ColumnDef<AnalyticCampaignData>[] = [
     },
 
     meta: {
-      cellClassName: 'min-w-32 w-32',
+      // cellClassName: 'min-w-32 w-32',
     },
   },
 

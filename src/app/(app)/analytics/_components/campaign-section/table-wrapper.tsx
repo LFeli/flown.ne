@@ -23,6 +23,12 @@ import { TableEmptyState } from '@/components/table/table-empty-state'
 import { monthsMap } from '@/constants/months'
 import type { AnalyticCampaignData } from '@/types/table'
 
+// by default the months columns is hidden for not generated shift layout on refresh
+const defaultVisibility: VisibilityState = Object.fromEntries(
+  Object.values(monthsMap).map(monthKey => [monthKey, false])
+)
+defaultVisibility.totalImpressions = false
+
 interface CampaignTableWrapperProps<
   TData extends AnalyticCampaignData,
   TValue,
@@ -37,7 +43,7 @@ export function CampaignTableWrapper<
   TValue,
 >({ data, columns, visibleMonths }: CampaignTableWrapperProps<TData, TValue>) {
   const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
+    React.useState<VisibilityState>(defaultVisibility)
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   )
