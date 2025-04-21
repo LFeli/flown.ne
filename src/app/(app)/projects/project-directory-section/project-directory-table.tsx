@@ -5,8 +5,13 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { projectsDirectoryMock } from '@/mocks/table'
+import { columns } from './columns'
+import { ProjectDirectoryTableWrapper } from './table-wrapper'
 
 export function ProjectDirectoryTable() {
+  const data = projectsDirectoryMock
+
   return (
     <section>
       <Card className="bg-gradient-to-t from-primary/5 to-card shadow-xs">
@@ -20,12 +25,7 @@ export function ProjectDirectoryTable() {
         </CardHeader>
 
         <CardContent>
-          {/* <CampaignTableWrapper
-            data={data}
-            columns={columns}
-            visibleMonths={visibleMonths}
-          /> */}
-          a
+          <ProjectDirectoryTableWrapper data={data} columns={columns} />a
         </CardContent>
       </Card>
     </section>
