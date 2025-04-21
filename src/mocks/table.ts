@@ -1,4 +1,8 @@
-import type { AnalyticCampaignData, ContentTrackerData } from '@/types/table'
+import type {
+  AnalyticCampaignData,
+  ContentTrackerData,
+  ProjectData,
+} from '@/types/table'
 
 export const ContentTrackerTableMock: ContentTrackerData[] = [
   {
@@ -720,5 +724,64 @@ export const analyticCampaignPerformanceMock: AnalyticCampaignData[] = [
       november: 8000,
       december: 7500,
     },
+  },
+]
+
+export const projectsDirectoryMock: ProjectData[] = [
+  {
+    id: 'a1b2c3d4-e5f6-4g7h-8i9j-101112131415',
+    name: 'AI Onboarding Bot',
+    description:
+      'A conversational assistant to help users onboard smoothly with AI-powered prompts.',
+    owner: { name: 'Alex J.', avatarUrl: '/avatars/alex.png' },
+    contributors: [
+      { name: 'Jamie L.', avatarUrl: '/avatars/jamie.png' },
+      { name: 'Morgan K.', avatarUrl: '/avatars/morgan.png' },
+    ],
+    status: 'active',
+    startDate: '2024-01-12',
+    endDate: '2024-04-30',
+    lastUpdated: '2025-04-15T10:12:00Z',
+    tags: ['AI', 'Product', 'Onboarding'],
+  },
+  {
+    id: '22334455-6677-8899-aa00-bbccddeeff01',
+    name: 'Persona Sync Tool',
+    description:
+      'Sync personas across multiple platforms for aligned marketing and UX strategies.',
+    owner: { name: 'Morgan K.', avatarUrl: '/avatars/morgan.png' },
+    contributors: [{ name: 'Alex J.', avatarUrl: '/avatars/alex.png' }],
+    status: 'in-review',
+    startDate: '2023-10-25',
+    lastUpdated: '2025-03-20T14:35:00Z',
+    tags: ['UX', 'Internal', 'Tooling'],
+  },
+  {
+    id: '33445566-7788-99aa-bbcc-ddeeff001122',
+    name: 'Flow Tracker',
+    description:
+      'Tool to track and visualize user flow across key content journeys.',
+    owner: { name: 'Jamie L.', avatarUrl: '/avatars/jamie.png' },
+    contributors: [],
+    status: 'archived',
+    startDate: '2023-02-02',
+    endDate: '2023-12-05',
+    lastUpdated: '2023-12-06T08:20:00Z',
+    tags: ['Marketing', 'UX'],
+  },
+  {
+    id: '44556677-8899-aabb-ccdd-eeff00112233',
+    name: 'Launch Campaign X',
+    description:
+      'High-impact campaign for new product launch, with performance-focused messaging.',
+    owner: { name: 'Dana V.', avatarUrl: '/avatars/dana.png' },
+    contributors: [
+      { name: 'Alex J.', avatarUrl: '/avatars/alex.png' },
+      { name: 'Morgan K.', avatarUrl: '/avatars/morgan.png' },
+    ],
+    status: 'active',
+    startDate: '2025-03-15',
+    lastUpdated: '2025-04-18T18:10:00Z',
+    tags: ['Product', 'B2C', 'Campaign'],
   },
 ]
