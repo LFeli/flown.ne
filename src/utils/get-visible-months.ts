@@ -1,30 +1,29 @@
 import { monthRange } from '@/constants/months'
 
 /**
- * Returns a filtered list of visible months based on a start and end month.
+ * Returns a filtered list of months based on a comma-separated selection string.
  *
- * If no start or end is provided, the full `monthRange` is returned.
- * If the start month is greater than the end month, an empty array is returned.
+ * - If no value is provided, the full `monthRange` is returned.
+ * - If the input is `"0"`, an empty array is returned, indicating no months selected.
+ * - Otherwise, the string is split by commas and only valid months from `monthRange` are returned.
+ * - If none of the selected months are valid, the full `monthRange` is returned as fallback.
  *
- * @param {string} [start] - The starting month as a string (e.g., "3" for March).
- * @param {string} [end] - The ending month as a string (e.g., "8" for August).
- * @returns {string[]} An array of months as strings within the specified range.
+ * @param {string} [monthsSelected] - A comma-separated string of selected months (e.g., "1,3,5").
+ * @returns {string[]} An array of valid selected months, or a fallback based on the input.
  */
-export function getVisibleMonths(start?: string, end?: string): string[] {
-  if (!start || !end) {
+export function getVisibleMonths(monthsSelected?: string): string[] {
+  if (!monthsSelected) {
     return monthRange
   }
 
-  const startInt = Number.parseInt(start)
-  const endInt = Number.parseInt(end)
-
-  if (startInt > endInt) {
+  if (monthsSelected === '0') {
     return []
   }
 
-  return monthRange.filter(month => {
-    const monthInt = Number.parseInt(month)
+  const months = monthsSelected
+    .split(',')
+    .map(m => m.trim())
+    .filter(m => monthRange.includes(m))
 
-    return monthInt >= startInt && monthInt <= endInt
-  })
+  return months.length > 0 ? months : monthRange
 }
