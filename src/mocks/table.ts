@@ -615,7 +615,7 @@ export const ContentTrackerTableMock: ContentTrackerData[] = [
   },
 ]
 
-export const AnalyticCampaignPerformanceMock: AnalyticCampaignData[] = [
+export const analyticCampaignPerformanceMock: AnalyticCampaignData[] = [
   {
     campaignId: 'cmp-001',
     campaignName: 'Spring Launch 2025',

@@ -15,30 +15,49 @@ import {
 } from '@tanstack/react-table'
 import React from 'react'
 
-import { RowCommon } from '@/components/table/row-common'
-import { TableEmptyState } from '@/components/table/table-empty-state'
 import { TableHeaderTemplate } from '@/components/table/table-header-template'
 import { Table, TableBody } from '@/components/ui/table'
+
+import { RowCommon } from '@/components/table/row-common'
+import { TableEmptyState } from '@/components/table/table-empty-state'
+import { monthsMap } from '@/constants/months'
 import type { AnalyticCampaignData } from '@/types/table'
 
-interface CampaignPerformanceTableWrapperProps<
+interface CampaignTableWrapperProps<
   TData extends AnalyticCampaignData,
   TValue,
 > {
   data: TData[]
   columns: ColumnDef<TData, TValue>[]
+  visibleMonths?: string[]
 }
 
-export function CampaignPerformanceTableWrapper<
+export function CampaignTableWrapper<
   TData extends AnalyticCampaignData,
   TValue,
->({ data, columns }: CampaignPerformanceTableWrapperProps<TData, TValue>) {
+>({ data, columns, visibleMonths }: CampaignTableWrapperProps<TData, TValue>) {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({})
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   )
   const [sorting, setSorting] = React.useState<SortingState>([])
+
+  React.useEffect(() => {
+    if (!visibleMonths) {
+      return
+    }
+
+    const visibility: VisibilityState = {
+      id: true,
+    }
+
+    for (const [monthNumber, monthKey] of Object.entries(monthsMap)) {
+      visibility[monthKey] = visibleMonths.includes(monthNumber)
+    }
+
+    setColumnVisibility(visibility)
+  }, [visibleMonths])
 
   const table = useReactTable({
     data,
@@ -66,6 +85,8 @@ export function CampaignPerformanceTableWrapper<
 
   return (
     <div className="space-y-4">
+      {/* toolbar here... */}
+
       <div className="overflow-hidden rounded-lg border">
         <Table>
           <TableHeaderTemplate header={header} />
@@ -79,6 +100,8 @@ export function CampaignPerformanceTableWrapper<
           </TableBody>
         </Table>
       </div>
+
+      {/* footer here... */}
     </div>
   )
 }
