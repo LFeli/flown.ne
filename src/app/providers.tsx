@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'next-themes'
 
 import { Toaster } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
 
 export function Providers({
   children,
@@ -14,8 +15,10 @@ export function Providers({
       enableSystem={true}
       disableTransitionOnChange
     >
-      {children}
-      <Toaster closeButton richColors />
+      <TooltipProvider>
+        {children}
+        <Toaster closeButton richColors />
+      </TooltipProvider>
     </ThemeProvider>
   )
 }
