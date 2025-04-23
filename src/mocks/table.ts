@@ -729,7 +729,7 @@ export const analyticCampaignPerformanceMock: AnalyticCampaignData[] = [
 
 export const projectsDirectoryMock: ProjectData[] = [
   {
-    id: 'a1b2c3d4-e5f6-4g7h-8i9j-101112131415',
+    id: 'proj-001',
     name: 'AI Onboarding Bot',
     description:
       'A conversational assistant to help users onboard smoothly with AI-powered prompts.',
@@ -745,7 +745,7 @@ export const projectsDirectoryMock: ProjectData[] = [
     tags: ['AI', 'Product', 'Onboarding'],
   },
   {
-    id: '22334455-6677-8899-aa00-bbccddeeff01',
+    id: 'proj-002',
     name: 'Persona Sync Tool',
     description:
       'Sync personas across multiple platforms for aligned marketing and UX strategies.',
@@ -757,7 +757,7 @@ export const projectsDirectoryMock: ProjectData[] = [
     tags: ['UX', 'Internal', 'Tooling'],
   },
   {
-    id: '33445566-7788-99aa-bbcc-ddeeff001122',
+    id: 'proj-003',
     name: 'Flow Tracker',
     description:
       'Tool to track and visualize user flow across key content journeys.',
@@ -770,7 +770,7 @@ export const projectsDirectoryMock: ProjectData[] = [
     tags: ['Marketing', 'UX'],
   },
   {
-    id: '44556677-8899-aabb-ccdd-eeff00112233',
+    id: 'proj-004',
     name: 'Launch Campaign X',
     description:
       'High-impact campaign for new product launch, with performance-focused messaging.',
