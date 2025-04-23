@@ -103,7 +103,7 @@ export function CampaignSectionFilter<TData>({
       <DropdownMenuContent align="center" sideOffset={8} className="w-44">
         <DropdownMenuLabel className="flex items-center text-muted-foreground">
           Filter by Months
-          <CalendarRangeIcon className="ml-auto size-4" />
+          {/* <CalendarRangeIcon className="ml-auto size-4" /> */}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
@@ -146,7 +146,7 @@ export function CampaignSectionFilter<TData>({
         <DropdownMenuSeparator />
         <DropdownMenuLabel className="flex items-center text-muted-foreground">
           Column visibility
-          <ColumnsIcon className="ml-auto size-4" />
+          {/* <ColumnsIcon className="ml-auto size-4" /> */}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
@@ -176,7 +176,7 @@ export function CampaignSectionFilter<TData>({
         <DropdownMenuSeparator />
         <DropdownMenuLabel className="flex items-center text-muted-foreground">
           Actions
-          <PencilIcon className="ml-auto size-4" />
+          {/* <PencilIcon className="ml-auto size-4" /> */}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
