@@ -38,7 +38,7 @@ export const sidebarMockMain = [
   },
   {
     title: 'Team',
-    url: '#',
+    url: '/team',
     icon: UsersIcon,
   },
 ]
