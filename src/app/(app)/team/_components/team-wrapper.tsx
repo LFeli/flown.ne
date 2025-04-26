@@ -26,8 +26,6 @@ export function TeamWrapper({ option }: TeamWrapperProps) {
     return members.filter(member => member.teamId === selectedTeam.id)
   }, [selectedTeam])
 
-  console.log(teamMembers)
-
   return (
     <Card className="gap-y-4 border-none bg-transparent py-4 shadow-none md:gap-y-8">
       <CardHeader className="relative flex flex-col items-center justify-between gap-x-8 gap-y-6 px-0 md:flex-row md:gap-x-12">
@@ -44,7 +42,7 @@ export function TeamWrapper({ option }: TeamWrapperProps) {
       </CardHeader>
 
       <CardContent className="space-y-4 px-0 md:space-y-8">
-        <TeamStatsCardWrapper />
+        <TeamStatsCardWrapper members={teamMembers} />
 
         <TeamListTable members={teamMembers} />
       </CardContent>
