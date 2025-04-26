@@ -14,6 +14,7 @@ import type { ProjectMember } from '@/types/pages/team'
 import { RowCommon } from '@/components/table/row-common'
 import { TableEmptyState } from '@/components/table/table-empty-state'
 import { columns } from './columns'
+import { TeamListTableFooter } from './footer'
 import { TeamListTableConfig } from './table-config'
 
 interface TeamListTableProps {
@@ -55,7 +56,7 @@ export function TeamListTable({ members }: TeamListTableProps) {
             </Table>
           </div>
 
-          <div>footer...</div>
+          <TeamListTableFooter table={table} />
         </CardContent>
       </Card>
     </section>
