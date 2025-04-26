@@ -16,6 +16,7 @@ import { TableEmptyState } from '@/components/table/table-empty-state'
 import { columns } from './columns'
 import { TeamListTableFooter } from './footer'
 import { TeamListTableConfig } from './table-config'
+import { TeamListTableToolbar } from './toolbar'
 
 interface TeamListTableProps {
   members: ProjectMember[]
@@ -40,7 +41,7 @@ export function TeamListTable({ members }: TeamListTableProps) {
         </CardHeader>
 
         <CardContent className="space-y-4">
-          <div>toolbar...</div>
+          <TeamListTableToolbar table={table} />
 
           <div className="overflow-hidden rounded-lg border">
             <Table>
