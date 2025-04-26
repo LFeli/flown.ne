@@ -24,7 +24,7 @@ import {
 import { useIsMobile } from '@/hooks/use-mobile'
 import { cn } from '@/lib/utils'
 import type { TeamOption } from '@/types/pages/team'
-import { Check } from 'lucide-react'
+import { Check, ChevronDownIcon } from 'lucide-react'
 
 interface SelectTeamOptionProps {
   selected: string
@@ -52,8 +52,13 @@ export function SelectTeamOption({ selected, teams }: SelectTeamOptionProps) {
     return (
       <Drawer open={openDrawer} onOpenChange={setOpenDrawer}>
         <DrawerTrigger asChild>
-          <Button variant="outline" className="w-full justify-start">
+          <Button
+            variant="outline"
+            className="w-full items-center justify-between"
+          >
             {teams.find(team => team.id === selected)?.label || 'Select team'}
+
+            <ChevronDownIcon className="size-4 text-muted-foreground" />
           </Button>
         </DrawerTrigger>
 
