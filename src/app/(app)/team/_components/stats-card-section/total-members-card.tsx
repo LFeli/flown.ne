@@ -9,13 +9,17 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-export function TotalMembersCard() {
+interface TotalMembersCardProps {
+  total: number
+}
+
+export function TotalMembersCard({ total }: TotalMembersCardProps) {
   return (
     <Card className="@container/card flex flex-1 flex-col justify-between">
       <CardHeader className="relative">
         <CardDescription>Total Members</CardDescription>
         <CardTitle className="font-semibold @[250px]/card:text-3xl text-2xl tabular-nums">
-          18
+          {total}
         </CardTitle>
 
         <div className="absolute top-0 right-4">

@@ -9,13 +9,17 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-export function ActiveMembersCard() {
+interface ActiveMembersCardProps {
+  count: number
+}
+
+export function ActiveMembersCard({ count }: ActiveMembersCardProps) {
   return (
     <Card className="@container/card flex flex-1 flex-col justify-between">
       <CardHeader className="relative">
         <CardDescription>Active Today</CardDescription>
         <CardTitle className="font-semibold @[250px]/card:text-3xl text-2xl tabular-nums">
-          14
+          {count}
         </CardTitle>
 
         <div className="absolute top-0 right-4">
