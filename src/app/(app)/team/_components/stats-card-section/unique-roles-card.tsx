@@ -11,7 +11,7 @@ import {
 
 export function UniqueRolesCard() {
   return (
-    <Card className="@container/card">
+    <Card className="@container/card flex flex-1 flex-col justify-between">
       <CardHeader className="relative">
         <CardDescription>Unique Roles</CardDescription>
         <CardTitle className="font-semibold @[250px]/card:text-3xl text-2xl tabular-nums">

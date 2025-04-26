@@ -11,7 +11,7 @@ import {
 
 export function OnLeaveMembersCard() {
   return (
-    <Card className="@container/card">
+    <Card className="@container/card flex flex-1 flex-col justify-between">
       <CardHeader className="relative">
         <CardDescription>On Leave</CardDescription>
         <CardTitle className="font-semibold @[250px]/card:text-3xl text-2xl tabular-nums">
@@ -26,12 +26,12 @@ export function OnLeaveMembersCard() {
         </div>
       </CardHeader>
 
-      <CardFooter className="relative flex-col items-start gap-1 text-sm">
-        <div className="text-muted-foreground">
+      <CardFooter className="items-start justify-between gap-x-6 text-sm">
+        <div className="max-w-48 text-muted-foreground md:max-w-fit">
           Currently unavailable (leave/absence)
         </div>
 
-        <div className="absolute right-4 bottom-0 block md:hidden">
+        <div className="block md:hidden">
           <Badge variant="secondary" className="flex gap-3 rounded-lg text-xs">
             Swipe to next
             <MoveRightIcon className="size-3" />

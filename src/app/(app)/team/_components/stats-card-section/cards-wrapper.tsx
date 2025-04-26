@@ -14,25 +14,25 @@ export function TeamStatsCardWrapper() {
     <div className="*:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs dark:*:data-[slot=card]:bg-card">
       <Carousel className="md:hidden">
         <CarouselContent>
-          <CarouselItem>
+          <CarouselItem className="flex items-stretch">
             <TotalMembersCard />
           </CarouselItem>
 
-          <CarouselItem>
+          <CarouselItem className="flex items-stretch">
             <ActiveMembersCard />
           </CarouselItem>
 
-          <CarouselItem>
+          <CarouselItem className="flex items-stretch">
             <OnLeaveMembersCard />
           </CarouselItem>
 
-          <CarouselItem>
+          <CarouselItem className="flex items-stretch">
             <UniqueRolesCard />
           </CarouselItem>
         </CarouselContent>
       </Carousel>
 
-      <div className="hidden md:grid md:grid-cols-2 md:gap-4 xl:grid-cols-4">
+      <div className="hidden items-stretch md:grid md:grid-cols-2 md:gap-4 xl:grid-cols-4">
         <TotalMembersCard />
         <ActiveMembersCard />
         <OnLeaveMembersCard />
