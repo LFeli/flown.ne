@@ -134,6 +134,15 @@ export const columns: ColumnDef<AnalyticCampaignData>[] = [
           </span>
         )
       },
+      footer: ({
+        table,
+      }: {
+        table: Table<AnalyticCampaignData>
+      }) =>
+        table.getFilteredRowModel().rows.reduce((sum, r) => {
+          const value = r.original.monthsImpressions[monthKey]
+          return sum + (value ?? 0) // add fallback for undefined
+        }, 0),
 
       meta: {
         cellClassName: 'min-w-20 w-20',
@@ -167,9 +176,22 @@ export const columns: ColumnDef<AnalyticCampaignData>[] = [
         </span>
       )
     },
-
-    meta: {
-      // cellClassName: 'min-w-32 w-32',
+    footer: ({ table }) => {
+      const vis = table
+        .getVisibleLeafColumns()
+        .map(c => c.id)
+        .filter(isMonthKey)
+      return table
+        .getFilteredRowModel()
+        .rows.reduce(
+          (sum, r) =>
+            sum +
+            vis.reduce(
+              (rowSum, m) => rowSum + r.original.monthsImpressions[m],
+              0
+            ),
+          0
+        )
     },
   },
 
