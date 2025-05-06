@@ -5,6 +5,7 @@ import {
   type ColumnFiltersState,
   type SortingState,
   type VisibilityState,
+  flexRender,
   getCoreRowModel,
   getFacetedRowModel,
   getFacetedUniqueValues,
@@ -16,12 +17,21 @@ import {
 import React from 'react'
 
 import { TableHeaderTemplate } from '@/components/table/table-header-template'
-import { Table, TableBody } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 import { RowCommon } from '@/components/table/row-common'
 import { TableEmptyState } from '@/components/table/table-empty-state'
+import { TablePartialHeader } from '@/components/table/table-partial-header'
 import { monthsMap } from '@/constants/months'
 import type { AnalyticCampaignData } from '@/types/table'
+import clsx from 'clsx'
 import { CampaignSectionToolbar } from './toolbar'
 
 interface CampaignTableWrapperProps<
@@ -38,6 +48,16 @@ const defaultVisibility: VisibilityState = Object.fromEntries(
   Object.values(monthsMap).map(monthKey => [monthKey, false])
 )
 defaultVisibility.totalImpressions = false
+
+// ✅ Derive valid month keys from monthsMap values
+const monthKeys = Object.values(
+  monthsMap
+) as (keyof AnalyticCampaignData['monthsImpressions'])[]
+
+const isMonthKey = (
+  key: string
+): key is keyof AnalyticCampaignData['monthsImpressions'] =>
+  monthKeys.includes(key as keyof AnalyticCampaignData['monthsImpressions'])
 
 export function CampaignTableWrapper<
   TData extends AnalyticCampaignData,
@@ -99,11 +119,18 @@ export function CampaignTableWrapper<
 
       <div className="overflow-hidden rounded-lg border">
         <Table>
+          <TablePartialHeader
+            table={table}
+            columnsKey={monthKeys}
+            totalKey="totalImpressions"
+            label="Partial of impressions:"
+          />
+
           <TableHeaderTemplate header={header} />
 
-          <TableBody className="**:data-[slot=table-cell]:first:w-8">
+          <TableBody>
             {rows.length ? (
-              rows.map(row => <RowCommon key={row.id} row={row} />)
+              rows.map(r => <RowCommon key={r.id} row={r} />)
             ) : (
               <TableEmptyState columns={columns} />
             )}
