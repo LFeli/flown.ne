@@ -54,11 +54,6 @@ const monthKeys = Object.values(
   monthsMap
 ) as (keyof AnalyticCampaignData['monthsImpressions'])[]
 
-const isMonthKey = (
-  key: string
-): key is keyof AnalyticCampaignData['monthsImpressions'] =>
-  monthKeys.includes(key as keyof AnalyticCampaignData['monthsImpressions'])
-
 export function CampaignTableWrapper<
   TData extends AnalyticCampaignData,
   TValue,
