@@ -103,7 +103,6 @@ export function CampaignSectionFilter<TData>({
       <DropdownMenuContent align="center" sideOffset={8} className="w-44">
         <DropdownMenuLabel className="flex items-center text-muted-foreground">
           Filter by Months
-          {/* <CalendarRangeIcon className="ml-auto size-4" /> */}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
@@ -146,7 +145,6 @@ export function CampaignSectionFilter<TData>({
         <DropdownMenuSeparator />
         <DropdownMenuLabel className="flex items-center text-muted-foreground">
           Column visibility
-          {/* <ColumnsIcon className="ml-auto size-4" /> */}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
@@ -176,19 +174,18 @@ export function CampaignSectionFilter<TData>({
         <DropdownMenuSeparator />
         <DropdownMenuLabel className="flex items-center text-muted-foreground">
           Actions
-          {/* <PencilIcon className="ml-auto size-4" /> */}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <div className="flex flex-col">
           <DropdownMenuItem onSelect={handleApply} asChild>
             <Button
-              variant="secondary"
+              variant={'default'}
               size="sm"
-              className="w-full focus-visible:ring-0"
+              className="w-full text-green-50 focus-visible:ring-0"
             >
               Apply filters
-              <CheckIcon className="ml-auto size-4" />
+              <CheckIcon className="ml-auto size-4 text-green-50" />
             </Button>
           </DropdownMenuItem>
 
