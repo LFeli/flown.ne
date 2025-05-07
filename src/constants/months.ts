@@ -31,6 +31,16 @@ export const monthsMap: Record<string, string> = {
 }
 
 /**
+ * An array of all lowercase English month names in calendar order.
+ *
+ * Derived from `monthsMap`, useful for iterating, rendering columns, etc.
+ *
+ * @example
+ * console.log(monthKeys); // ["january", "february", ..., "december"]
+ */
+export const monthKeys = Object.values(monthsMap)
+
+/**
  * A mapping from quarter numbers (as strings) to arrays of corresponding month numbers (as strings).
  *
  * @example
